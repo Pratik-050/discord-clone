@@ -5,6 +5,7 @@ import { LoadingIndicator } from 'stream-chat-react';
 
 import { useClerk } from '@clerk/nextjs';
 import { useCallback, useEffect, useState } from 'react';
+import NewChat from '@/components/NewChat';
 require('dotenv').config();
 
 export type Homestate = {
@@ -109,9 +110,5 @@ export default function Home() {
     });
   }
 
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">
-      Hello
-    </div>
-  );
+  return <NewChat {...myState} />
 }

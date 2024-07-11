@@ -8,10 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        discord: '#7289da',
+        'dark-discord': '#4752c4',
+        'dark-gray': '#dfe1e4',
+        'medium-gray': '#f0f1f3',
+        'light-gray': '#e8eaec',
+        'hover-gray': '#cdcfd3',
+        'composer-gray': 'hsl(210 calc( 1 * 11.1%) 92.9% / 1);',
+        'gray-normal': '#313338',
       },
     },
   },

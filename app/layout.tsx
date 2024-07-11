@@ -9,6 +9,7 @@ import {
   UserButton
 } from '@clerk/nextjs'
 import LoginScreen from "@/components/LoginScreen";
+import { DiscordContextProvider } from "@/context/DiscordContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,18 +24,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-
-
-      <html lang="en">
-        <body className={inter.className}>
-          <SignedOut>
-            <LoginScreen />
-          </SignedOut>
-          <SignedIn>
-            {children}
-          </SignedIn></body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body className={inter.className}>
+        <ClerkProvider>
+          <DiscordContextProvider>
+            <div className={inter.className}>
+              <SignedOut>
+                <LoginScreen />
+              </SignedOut>
+              <SignedIn>
+                {children}
+              </SignedIn>
+            </div>
+          </DiscordContextProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }
