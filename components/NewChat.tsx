@@ -22,6 +22,7 @@ import { StreamVideo } from '@stream-io/video-react-sdk';
 import { useDiscordContext } from '@/context/DiscordContext';
 import MyCall from '@/components/MyCall/MyCall';
 import CustomChannelHeader from './MessageList/CustomChannelHeader/CustomChannelHeader';
+import LoadScreen from './LoadScreen';
 
 export default function MyChat({
     apiKey,
@@ -45,11 +46,11 @@ export default function MyChat({
     const { callId } = useDiscordContext();
 
     if (!chatClient) {
-        return <div>Error, please try again later.</div>;
+        return <div><LoadScreen /></div>;
     }
 
     if (!videoClient) {
-        return <div>Video Error, please try again later.</div>;
+        return <div><LoadScreen /></div>;
     }
 
     return (
