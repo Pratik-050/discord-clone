@@ -82,10 +82,12 @@ export const DiscordContextProvider: any = ({
                 const categories = new Set(
                     channels
                         .filter((channel) => {
-                            return channel.data?.data?.server === server.name;
+                            const data = channel.data?.data as ChannelData;
+                            return data?.server === server.name;
                         })
                         .map((channel) => {
-                            return channel.data?.data?.category;
+                            const data = channel.data?.data as ChannelData;
+                            return data?.category;
                         })
                 );
 
@@ -93,9 +95,10 @@ export const DiscordContextProvider: any = ({
                     channelsByCategories.set(
                         category,
                         channels.filter((channel) => {
+                            const data = channel.data?.data as ChannelData;
                             return (
-                                channel.data?.data?.server === server.name &&
-                                channel.data?.data?.category === category
+                                data?.server === server.name &&
+                                data?.category === category
                             );
                         })
                     );
